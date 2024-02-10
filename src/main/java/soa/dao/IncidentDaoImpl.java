@@ -102,7 +102,7 @@ public class IncidentDaoImpl implements IincidentDao{
 	}
 	public List<incident> findAllIncident() {
 		Query query=
-				em.createQuery("select r from incident r order by r.Num_Incident");
+				em.createQuery("SELECT DISTINCT r FROM incident r ORDER BY r.Num_Incident");
 		return query.getResultList();
 	}
 

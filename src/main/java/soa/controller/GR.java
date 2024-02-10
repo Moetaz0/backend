@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -39,7 +38,7 @@ public class GR {
         return causeRepo.findAll();
     }
 
-    @GetMapping(value = "cause/get/{Code_Cause}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "cause/get/{code_cause}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public cause getCause(@PathVariable int code_cause) {
         return causeRepo.findById(code_cause).orElse(null);
     }

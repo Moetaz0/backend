@@ -13,7 +13,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Allow CORS for all endpoints
-                .allowedOrigins("http://localhost:58953/") // Replace with the actual origin of your Angular app
+                .allowedOrigins("https://incidentsteg.netlify.app/") // Replace with the actual origin of your Angular app
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("Origin", "X-Requested-With", "Content-Type", "Accept")
                 .maxAge(3600);
