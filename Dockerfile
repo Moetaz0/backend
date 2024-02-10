@@ -4,3 +4,4 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/spring-jpa-REST-0.0.1-SNAPSHOT.jar spring-jpa-REST.jar
 EXPOSE 8080
+ENTRYPOINT ["java","-jar","spring-jpa-REST.jar"]
