@@ -43,7 +43,22 @@ public class GR {
     public cause getCause(@PathVariable int code_cause) {
         return causeRepo.findById(code_cause).orElse(null);
     }
-
+    @GetMapping(value = "cause/findCauseByDesignation/{Designation}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<cause> findCauseByDesignation(@PathVariable String Designation) {
+        return causeRepo.findCauseByDesignation(Designation);
+    }
+    @GetMapping(value = "incident/findIncidentByPostName/{PostName}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<incident> findIncidentByPostName(@PathVariable String PostName) {
+        return incidentRepo.findIncidentByPostName(PostName);
+    }
+    @GetMapping(value = "poste/findPosteByPostName/{PostName}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<poste> findPosteByPostName(@PathVariable String PostName) {
+        return posteRepo.findPosteByPostName(PostName);
+    }
+    @GetMapping(value = "ouvrage/findOuvrageByPostName/{PostName}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<ouvrage> findOuvrageByPostName(@PathVariable String PostName) {
+        return ouvrageRepo.findOuvrageByPostName(PostName);
+    }
 
     @DeleteMapping(value = "cause/delete/{code_cause}")
     public ResponseEntity<String> deleteReglement(@PathVariable int code_cause) {
@@ -86,6 +101,7 @@ public class GR {
         }
         return null;
     }
+
 
 
     @GetMapping(value = "ouvrage/getAll", produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -218,13 +234,13 @@ public class GR {
     public ResponseEntity<String> deleteIncident(@PathVariable int num_Incident) {
         try {
             incidentRepo.deleteById(num_Incident);
-            return new ResponseEntity<>("Cause with ID " + num_Incident + " deleted successfully", HttpStatus.OK);
+            return new ResponseEntity<>("incident with ID " + num_Incident + " deleted successfully", HttpStatus.OK);
         } catch (EmptyResultDataAccessException e) {
             // This exception is thrown if the entity with the specified ID is not found
-            return new ResponseEntity<>("Cause with ID " + num_Incident + " not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("incident with ID " + num_Incident + " not found", HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             // Handle other exceptions (e.g., database connectivity issues)
-            return new ResponseEntity<>("Error deleting Cause with ID " + num_Incident, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Error incident Cause with ID " + num_Incident, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
