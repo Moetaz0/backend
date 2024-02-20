@@ -18,7 +18,7 @@ import soa.repository.causeRepo;
 import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/")
 public class GR {
