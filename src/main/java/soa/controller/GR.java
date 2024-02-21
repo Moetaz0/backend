@@ -18,7 +18,6 @@ import soa.repository.causeRepo;
 import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
-
 @RestController
 @RequestMapping("/")
 public class GR {
