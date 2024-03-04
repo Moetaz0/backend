@@ -15,4 +15,6 @@ public class SpringJpaApplication {
         // Display a message upon application startup
         System.out.println("Spring Boot application started successfully!");
     }
+
+
 }
