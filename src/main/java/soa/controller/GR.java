@@ -43,13 +43,18 @@ public class GR {
     public List<cause> getAll() {
         return causeRepo.findAll();
     }
+    @GetMapping(value = "cause/get/{code_cause}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<cause> getCauseByCode(@PathVariable int code_cause) {
+        Optional<cause> optionalCause = causeRepo.findById(code_cause);
+        if (optionalCause.isPresent()) {
+            return ResponseEntity.ok(optionalCause.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
-    @GetMapping("/cause/get/{codeCause}")
-    public ResponseEntity<cause> getCause(@PathVariable int codeCause) {
-        Optional<cause> cause = causeRepo.findById(codeCause);
-        return cause.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }@GetMapping(value = "cause/findCauseByDesignation/{Designation}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "cause/findCauseByDesignation/{Designation}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<cause> findCauseByDesignation(@PathVariable String Designation) {
         return causeRepo.findCauseByDesignation(Designation);
     }
