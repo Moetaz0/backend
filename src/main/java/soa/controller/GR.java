@@ -19,6 +19,7 @@ import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
 @RestController
+@CrossOrigin(origins = "https://yourfrontenddomain.com")
 @RequestMapping("/*")
 public class GR {
 
@@ -35,6 +36,7 @@ public class GR {
     public String home() {
         return "Welcome to my Spring Boot application!";
     }
+
     @GetMapping(value = "cause/getAll", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<cause> getAll() {
         return causeRepo.findAll();
