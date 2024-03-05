@@ -20,9 +20,8 @@ import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
 @RestController
-@Controller
-@CrossOrigin(origins = "https://yourfrontenddomain.com")
-@RequestMapping("/*")
+@CrossOrigin(origins = "https://yourfrontenddomain.com") // Adjust the domain as per your frontend
+@RequestMapping("/api")
 public class GR {
 
     @Autowired
@@ -44,11 +43,12 @@ public class GR {
         return causeRepo.findAll();
     }
 
-    @GetMapping(value = "cause/get/{code_cause}", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public cause getCause(@PathVariable int code_cause) {
-        return causeRepo.findById(code_cause).orElse(null);
-    }
-    @GetMapping(value = "cause/findCauseByDesignation/{Designation}", produces = { MediaType.APPLICATION_JSON_VALUE })
+
+    @GetMapping("/cause/get/{codeCause}")
+    public ResponseEntity<cause> getCause(@PathVariable int codeCause) {
+        Optional<cause> cause = causeRepo.findById(codeCause);
+        return cause.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }@GetMapping(value = "cause/findCauseByDesignation/{Designation}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<cause> findCauseByDesignation(@PathVariable String Designation) {
         return causeRepo.findCauseByDesignation(Designation);
     }
