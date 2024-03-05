@@ -8,6 +8,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import soa.entities.cause;
@@ -19,6 +20,7 @@ import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
 @RestController
+@Controller
 @CrossOrigin(origins = "https://yourfrontenddomain.com")
 @RequestMapping("/*")
 public class GR {
