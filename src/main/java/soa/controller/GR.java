@@ -34,7 +34,7 @@ public class GR {
     @Autowired
     private ouvrageRepo ouvrageRepo;
 
-    @GetMapping("/")
+    @GetMapping("/greet")
     public String home() {
         return "Welcome to my Spring Boot application!";
     }
