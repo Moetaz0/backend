@@ -38,7 +38,7 @@ public class GR {
         return "Welcome to my Spring Boot application!";
     }
 
-    @GetMapping(value = "cause/getAll", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping( "cause/getAll")
     public List<cause> getAll() {
         return causeRepo.findAll();
     }
