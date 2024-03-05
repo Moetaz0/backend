@@ -20,7 +20,8 @@ import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
 @Controller
-@ResponseBody// Adjust the domain as per your frontend
+@ResponseBody
+@CrossOrigin(origins = "https://backend-1-6xma.onrender.com/") // Adjust the domain as per your frontend
 @RequestMapping("/api")
 public class GR {
 
