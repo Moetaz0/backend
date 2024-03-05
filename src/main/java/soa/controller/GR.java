@@ -19,7 +19,8 @@ import soa.repository.causeRepo;
 import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
-@RestController
+@Controller
+@ResponseBody
 @CrossOrigin(origins = "https://yourfrontenddomain.com") // Adjust the domain as per your frontend
 @RequestMapping("/api")
 public class GR {
