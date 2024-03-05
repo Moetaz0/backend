@@ -19,7 +19,7 @@ import soa.repository.incidentRepo;
 import soa.repository.ouvrageRepo;
 import soa.repository.posteRepo;
 @RestController
-@RequestMapping("/")
+@RequestMapping
 public class GR {
 
     @Autowired
@@ -31,7 +31,10 @@ public class GR {
     @Autowired
     private ouvrageRepo ouvrageRepo;
 
-
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to my Spring Boot application!";
+    }
     @GetMapping(value = "cause/getAll", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<cause> getAll() {
         return causeRepo.findAll();
