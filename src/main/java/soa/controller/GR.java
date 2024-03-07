@@ -34,12 +34,12 @@ public class GR {
     @Autowired
     private ouvrageRepo ouvrageRepo;
 
-    @GetMapping("/greet")
+    @GetMapping(value ="/greet", produces = MediaType.APPLICATION_JSON_VALUE)
     public String home() {
         return "Welcome to my Spring Boot application!";
     }
 
-    @GetMapping( "cause/getAll")
+    @GetMapping( value = "cause/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<cause> getAll() {
         return causeRepo.findAll();
     }
